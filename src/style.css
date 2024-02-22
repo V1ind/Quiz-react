@@ -4,13 +4,15 @@
   box-sizing: border-box;
 }
 
+
 body {
   background: radial-gradient(
     circle,
     rgb(0, 146, 41) 20%,
     rgb(171, 232, 211) 100%
+    
   );
-
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +82,7 @@ label {
   height: 40px;
   color: white;
   font-size: 16px;
-  background-color: darkblue;
+  background-color: rgb(0, 139, 100);
   padding: 0px 20px;
   border-radius: 7px;
   border: 2px transparent solid;

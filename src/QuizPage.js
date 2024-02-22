@@ -74,7 +74,7 @@ class QuizPage extends Component {
 
     return (
       <div className="quiz-container" ref={this.divRef}>
-        <h2>Quiz Title</h2>
+        <h2>Interesting Questions</h2>
         {quizData.length > 0 && currentQuestionIndex < quizData.length && (
           <div>
             <h3>{quizData[currentQuestionIndex].question}</h3>

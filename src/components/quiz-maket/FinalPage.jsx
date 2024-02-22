@@ -9,7 +9,7 @@ export class FinalPage extends Component {
     return (
       <div>
         <h3>Quiz Completed!</h3>
-        <p>Total Score: {totalScore}</p>
+        <p>Total Score: {totalScore}/5</p>
       </div>
     );
   }
