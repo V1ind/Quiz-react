@@ -1,18 +1,17 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 export class Button extends Component {
   render() {
-    const { buttonNext, handleNextClick } = this.props;
+    const { buttonNext, onClick, buttonText } = this.props;
+
     return (
       <div>
         {buttonNext !== null && (
-          <button className="btn-next" onClick={handleNextClick}>
-            Next
+          <button className="btn-next" onClick={onClick}>
+            {buttonText || "NEXT"}
           </button>
         )}
       </div>
     );
   }
 }
-
-

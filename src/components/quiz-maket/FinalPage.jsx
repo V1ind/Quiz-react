@@ -5,7 +5,7 @@ export class FinalPage extends Component {
     super(prop);
   }
   render() {
-    const {totalScore} = this.props;
+    const { totalScore } = this.props;
     return (
       <div>
         <h3>Quiz Completed!</h3>
@@ -14,4 +14,3 @@ export class FinalPage extends Component {
     );
   }
 }
-

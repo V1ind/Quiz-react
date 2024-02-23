@@ -92,9 +92,9 @@ label {
 }
 
 .btn-next:hover {
-  color: darkblue;
+  color: rgb(118, 212, 165);
   background-color: white;
-  border: 2px darkblue solid;
+  border: 2px rgb(91, 202, 186) solid;
 }
 
 .btn-next:disabled {
