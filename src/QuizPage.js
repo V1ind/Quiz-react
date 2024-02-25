@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { fetchQuizData } from "./api";
 import "./style.css";
-import QuizAnswer from "./components/quiz-maket/QuizAnswer";
-import { FinalPage } from "./components/quiz-maket/FinalPage";
-import { Button } from "./components/quiz-maket/Button";
-import { QuizTitle } from "./components/quiz-maket/QuizTitle";
-import { QuizQData } from "./components/Data/QuizQData";
+import QuizContainer from "./components/quiz-maket/QuizContainer";
+
+export const ThemeContext = React.createContext({
+  theme: "light",
+  setTheme: () => {},
+});
 
 class QuizPage extends Component {
-  divRef = React.createRef();
-
   constructor(props) {
     super(props);
 
+    this.inputRef = React.createRef(null);
     this.state = {
       selectedValue: 0,
       quizData: [],
@@ -21,6 +21,7 @@ class QuizPage extends Component {
       totalScore: 0,
       selectedAnswer: null,
       pressed: false,
+      theme: "light",
     };
   }
 
@@ -68,38 +69,26 @@ class QuizPage extends Component {
       totalScore,
       selectedAnswer,
       pressed,
+      theme,
     } = this.state;
-
+    console.log(theme);
     return (
-      <QuizTitle>
-        {quizData.length > 0 && currentQuestionIndex < quizData.length && (
-          <QuizQData
-            quizData={quizData}
-            currentQuestionIndex={currentQuestionIndex}
-          >
-            {quizData[currentQuestionIndex].answers.map((answer) => (
-              <QuizAnswer
-                onChange={() => this.setState({ selectedAnswer: answer.id })}
-                key={answer.id}
-                answer={answer}
-                name="question"
-                selectedAnswer={selectedAnswer}
-                pressed={pressed}
-              />
-            ))}
-
-            <Button
-              buttonText="SUMBIT"
-              buttonNext={currentQuestionIndex + 1 < quizData.length}
-              onClick={this.handleNextClick}
-            />
-          </QuizQData>
-        )}
-
-        {currentQuestionIndex === quizData.length && (
-          <FinalPage totalScore={totalScore} />
-        )}
-      </QuizTitle>
+      <ThemeContext.Provider
+        value={{
+          theme,
+          setTheme: (theme) => this.setState({ theme }),
+        }}
+      >
+        <QuizContainer
+          quizData={quizData}
+          currentQuestionIndex={currentQuestionIndex}
+          selectedAnswer={selectedAnswer}
+          pressed={pressed}
+          totalScore={totalScore}
+          onChange={(selectedAnswer) => this.setState({ selectedAnswer })}
+          handleNextClick={this.handleNextClick}
+        />
+      </ThemeContext.Provider>
     );
   }
 }

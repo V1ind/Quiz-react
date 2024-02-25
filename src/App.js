@@ -1,4 +1,4 @@
-import React, { Component, useCallback, useState } from "react";
+import React from "react";
 import "./style.css";
 import QuizPage from "./QuizPage";
 

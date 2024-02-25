@@ -35,6 +35,11 @@ body {
   padding: 20px;
 }
 
+.quiz-container.dark {
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0 0 10px 2px rgb(255, 255, 255);
+}
+
 .quiz-container h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -69,6 +74,11 @@ label {
   padding: 0px 20px;
   border-radius: 7px;
   border: 1px solid #ddd;
+}
+
+label.dark {
+  color: white;
+  border: 1px solid #333;
 }
 
 .footer-container {
